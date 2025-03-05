@@ -1,0 +1,34 @@
+{
+  "name": "halopsa-api-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quantumdream/halopsa-api-client.git"
+  },
+  "keywords": [],
+  "author": {
+    "email": "npm@andreaszeuch.de",
+    "name": "Andreas Zeuch",
+    "url": "https://cw-it.de"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/quantumdream/halopsa-api-client/issues"
+  },
+  "homepage": "https://github.com/quantumdream/halopsa-api-client#readme",
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.13.9",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "ofetch": "^1.4.1"
+  }
+}
