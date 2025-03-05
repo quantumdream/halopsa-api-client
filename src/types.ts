@@ -64,6 +64,7 @@ export type Action = {
   travelisreadyforprocessing: boolean;
   outcome_id: number;
   action_systemid: number;
+  timetaken: number;
   timetakendays: number;
   timetakenadjusted: number;
   actionchargehours: number;
@@ -85,6 +86,7 @@ export type Action = {
   unread: number;
   actionby_application_id: string;
   actionby_user_id: number;
+  emaildirection?: number;
 };
 
 export type Ticket = {
@@ -237,6 +239,10 @@ export type Client = {
 export type RequestTokenResponse = {
   access_token: string;
   expires_in: number;
+  id_token: string;
+  scope: string;
+  token_type: string;
+  refresh_token: string;
 };
 
 export type FindAgentsResponse = Agent[];
