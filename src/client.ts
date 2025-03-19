@@ -1,5 +1,5 @@
-import { $Fetch, ofetch } from "ofetch";
-import {
+import { type $Fetch, ofetch } from "ofetch";
+import type {
   Action,
   Agent,
   Client,
@@ -13,7 +13,7 @@ import {
   FindTicketsResponse,
   RequestTokenResponse,
   Ticket,
-} from "./types";
+} from "./types.ts";
 
 export class HaloPSAApiClient {
   private authFetch: $Fetch;

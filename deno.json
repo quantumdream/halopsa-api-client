@@ -1,0 +1,15 @@
+{
+  "name": "@quantumdream/halopsa-api-client",
+  "version": "0.1.0",
+  "exports": "./src/mod.ts",
+  "tasks": {
+    "dev": "deno test --watch"
+  },
+  "license": "MIT",
+  "imports": {
+    "ofetch": "npm:ofetch@^1.4.1"
+  },
+  "publish": {
+    "exclude": ["deno.lock", ".github"]
+  }
+}

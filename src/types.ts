@@ -266,6 +266,7 @@ export type FindTicketsQuery = {
   pageinate?: boolean;
   page_size?: number;
   page_no?: number;
+  count?: number;
 };
 
 export type FindClientsResponse = {
