@@ -10,6 +10,6 @@
     "ofetch": "npm:ofetch@^1.4.1"
   },
   "publish": {
-    "exclude": ["deno.lock", ".github"]
+    "exclude": [".vscode", "deno.lock", ".github"]
   }
 }
