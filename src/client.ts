@@ -13,6 +13,9 @@ import type {
   FindTicketsResponse,
   RequestTokenResponse,
   Ticket,
+  UpdateUserDto,
+  UpdateUserResponse,
+  User,
 } from "./types.ts";
 
 export class HaloPSAApiClient {
@@ -120,5 +123,19 @@ export class HaloPSAApiClient {
     const client = await this.apiFetch<FindClientByIdResponse>(`client/${id}`);
 
     return client;
+  }
+
+  async updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User> {
+    const user = await this.apiFetch<UpdateUserResponse>(`users`, {
+      method: "POST",
+      body: [
+        {
+          id,
+          ...updateUserDto,
+        },
+      ],
+    });
+
+    return user;
   }
 }

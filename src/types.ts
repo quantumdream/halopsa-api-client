@@ -245,6 +245,16 @@ export type RequestTokenResponse = {
   refresh_token: string;
 };
 
+export type User = {
+  id: number;
+  sitephonenumber: string;
+  phonenumber: string;
+  homenumber: string;
+  mobilenumber: string;
+  mobilenumber2: string;
+  telpref: TelPref;
+};
+
 export type FindAgentsResponse = Agent[];
 
 export type FindActionsResponse = {
@@ -279,3 +289,21 @@ export type FindClientsQuery = {
 };
 
 export type FindClientByIdResponse = Client;
+
+export type UpdateUserDto = {
+  sitephonenumber?: string;
+  phonenumber?: string;
+  homenumber?: string;
+  mobilenumber?: string;
+  mobilenumber2?: string;
+  telpref?: TelPref;
+};
+
+export enum TelPref {
+  SitePhone = 1,
+  WorkMobile = 2,
+  WorkPhone = 3,
+  HomeMobile = 4,
+}
+
+export type UpdateUserResponse = User;
