@@ -299,7 +299,7 @@ export type UpdateUserDto = {
   homenumber?: string;
   mobilenumber?: string;
   mobilenumber2?: string;
-  telpref?: TelPref;
+  telpref?: number;
 };
 
 export type UpdateUserResponse = User;
