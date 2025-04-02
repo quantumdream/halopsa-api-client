@@ -307,3 +307,15 @@ export enum TelPref {
 }
 
 export type UpdateUserResponse = User;
+
+export type FindUsersQuery = {
+  pageinate?: boolean;
+  page_size?: number;
+  page_no?: number;
+  count?: number;
+};
+
+export type FindUsersResponse = {
+  users: User[];
+  record_count: number;
+};

@@ -11,6 +11,8 @@ import type {
   FindClientsResponse,
   FindTicketsQuery,
   FindTicketsResponse,
+  FindUsersQuery,
+  FindUsersResponse,
   RequestTokenResponse,
   Ticket,
   UpdateUserDto,
@@ -137,5 +139,18 @@ export class HaloPSAApiClient {
     });
 
     return user;
+  }
+
+  async findUsers(
+    findUsersQuery?: FindUsersQuery
+  ): Promise<{ users: User[]; record_count: number }> {
+    const { record_count, users } = await this.apiFetch<FindUsersResponse>(
+      "users",
+      {
+        query: findUsersQuery,
+      }
+    );
+
+    return { record_count, users };
   }
 }
