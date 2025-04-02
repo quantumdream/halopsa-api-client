@@ -247,6 +247,7 @@ export type RequestTokenResponse = {
 
 export type User = {
   id: number;
+  emailaddress: string;
   sitephonenumber: string;
   phonenumber: string;
   homenumber: string;
