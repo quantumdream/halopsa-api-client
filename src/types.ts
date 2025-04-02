@@ -1,3 +1,5 @@
+import type { TelPref } from "./enums.ts";
+
 export type Agent = {
   id: number;
   name: string;
@@ -299,13 +301,6 @@ export type UpdateUserDto = {
   mobilenumber2?: string;
   telpref?: TelPref;
 };
-
-export enum TelPref {
-  SitePhone = 1,
-  WorkMobile = 2,
-  WorkPhone = 3,
-  HomeMobile = 4,
-}
 
 export type UpdateUserResponse = User;
 
