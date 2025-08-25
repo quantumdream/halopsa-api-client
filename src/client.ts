@@ -76,6 +76,13 @@ export class HaloPSAApiClient {
     this.accessTokenExpiresAt = expires_in * 1000 + Date.now();
   }
 
+  raw(endpoint: string, method: string, body: any): Promise<unknown> {
+    return this.apiFetch(endpoint, {
+      method,
+      body,
+    });
+  }
+
   async findAgents(): Promise<{ agents: Agent[] }> {
     const agents = await this.apiFetch<FindAgentsResponse>("agent");
 
