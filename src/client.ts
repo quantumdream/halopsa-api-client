@@ -1,4 +1,4 @@
-import { type $Fetch, ofetch } from "ofetch";
+import { type $Fetch, FetchOptions, ofetch } from "ofetch";
 import type {
   Action,
   Agent,
@@ -76,11 +76,8 @@ export class HaloPSAApiClient {
     this.accessTokenExpiresAt = expires_in * 1000 + Date.now();
   }
 
-  raw(endpoint: string, method: string, body: any): Promise<unknown> {
-    return this.apiFetch(endpoint, {
-      method,
-      body,
-    });
+  raw(endpoint: string, options?: FetchOptions<"json", any>): Promise<unknown> {
+    return this.apiFetch(endpoint, options);
   }
 
   async findAgents(): Promise<{ agents: Agent[] }> {
