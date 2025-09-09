@@ -1,4 +1,4 @@
-import { type $Fetch, FetchOptions, ofetch } from "ofetch";
+import { type $Fetch, type FetchOptions, ofetch } from "ofetch";
 import type {
   Action,
   Agent,
@@ -30,7 +30,7 @@ export class HaloPSAApiClient {
     baseURL: string,
     clientId: string,
     clientSecret: string,
-    scope: string = "all"
+    scope: string = "all",
   ) {
     this.authFetch = ofetch.create({
       baseURL: `${baseURL}/auth`,
@@ -54,7 +54,7 @@ export class HaloPSAApiClient {
   private async requestToken(
     clientId: string,
     clientSecret: string,
-    scope: string
+    scope: string,
   ) {
     const requestTokenBody = new URLSearchParams();
 
@@ -63,20 +63,21 @@ export class HaloPSAApiClient {
     requestTokenBody.append("client_secret", clientSecret);
     requestTokenBody.append("scope", scope);
 
-    const { access_token, expires_in } =
-      await this.authFetch<RequestTokenResponse>("token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: requestTokenBody,
-      });
+    const { access_token, expires_in } = await this.authFetch<
+      RequestTokenResponse
+    >("token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: requestTokenBody,
+    });
 
     this.accessToken = access_token;
     this.accessTokenExpiresAt = expires_in * 1000 + Date.now();
   }
 
-  raw(endpoint: string, options?: FetchOptions<"json", any>): Promise<unknown> {
+  raw(endpoint: string, options?: FetchOptions<"json">): Promise<unknown> {
     return this.apiFetch(endpoint, options);
   }
 
@@ -87,39 +88,39 @@ export class HaloPSAApiClient {
   }
 
   async findActions(
-    findActionsQuery?: FindActionsQuery
+    findActionsQuery?: FindActionsQuery,
   ): Promise<{ actions: Action[]; record_count: number }> {
     const { actions, record_count } = await this.apiFetch<FindActionsResponse>(
       "actions",
       {
         query: findActionsQuery,
-      }
+      },
     );
 
     return { actions, record_count };
   }
 
   async findTickets(
-    findTicketsQuery?: FindTicketsQuery
+    findTicketsQuery?: FindTicketsQuery,
   ): Promise<{ tickets: Ticket[]; record_count: number }> {
     const { record_count, tickets } = await this.apiFetch<FindTicketsResponse>(
       "tickets",
       {
         query: findTicketsQuery,
-      }
+      },
     );
 
     return { tickets, record_count };
   }
 
   async findClients(
-    findClientsQuery?: FindClientsQuery
+    findClientsQuery?: FindClientsQuery,
   ): Promise<{ clients: Client[]; record_count: number }> {
     const { record_count, clients } = await this.apiFetch<FindClientsResponse>(
       "client",
       {
         query: findClientsQuery,
-      }
+      },
     );
 
     return { clients, record_count };
@@ -146,13 +147,13 @@ export class HaloPSAApiClient {
   }
 
   async findUsers(
-    findUsersQuery?: FindUsersQuery
+    findUsersQuery?: FindUsersQuery,
   ): Promise<{ users: User[]; record_count: number }> {
     const { record_count, users } = await this.apiFetch<FindUsersResponse>(
       "users",
       {
         query: findUsersQuery,
-      }
+      },
     );
 
     return { record_count, users };
