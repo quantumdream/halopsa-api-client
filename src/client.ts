@@ -77,7 +77,7 @@ export class HaloPSAApiClient {
     this.accessTokenExpiresAt = expires_in * 1000 + Date.now();
   }
 
-  raw(endpoint: string, options?: FetchOptions<"json">): Promise<unknown> {
+  raw<T>(endpoint: string, options?: FetchOptions<"json">): Promise<T> {
     return this.apiFetch(endpoint, options);
   }
 

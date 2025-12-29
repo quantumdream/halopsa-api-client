@@ -7,7 +7,7 @@
   },
   "license": "MIT",
   "imports": {
-    "ofetch": "npm:ofetch@^1.4.1"
+    "ofetch": "npm:ofetch@^1.5.1"
   },
   "publish": {
     "exclude": [".vscode", "deno.lock", ".github"]
