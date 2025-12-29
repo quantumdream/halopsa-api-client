@@ -78,7 +78,7 @@ export class HaloPSAApiClient {
   }
 
   raw<T>(endpoint: string, options?: FetchOptions<"json">): Promise<T> {
-    return this.apiFetch(endpoint, options);
+    return this.apiFetch<T>(endpoint, options);
   }
 
   async findAgents(): Promise<{ agents: Agent[] }> {
